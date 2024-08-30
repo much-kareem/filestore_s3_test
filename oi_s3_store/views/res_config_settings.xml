@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="res_config_settings_view_form" model="ir.ui.view">
+		<field name="name">res.config.settings.view.form.oi_s3_store</field>
+		<field name="model">res.config.settings</field>
+		<field name="priority" eval="100" />
+		<field name="inherit_id" ref="base.res_config_settings_view_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[hasclass('settings')]" position="inside">
+				<div class="app_settings_block" data-string="S3 Storage" id="oi_s3_store" string="S3 Storage" data-key="oi_s3_store"
+					groups="base.group_system">
+					<h2>S3 Storage</h2>
+					<div class="row mt16 o_settings_container">
+						<div class="col-12 col-lg-6 o_setting_box">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="attachment_location" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="attachment_location" class="o_light_label" widget="radio" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="s3_bucket" string="Bucket Name" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="s3_bucket" attrs="{'required' : [('attachment_location','=', 's3')]}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="aws_region_name" string="Region Name" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="aws_region_name" />
+									</div>
+								</div>
+							</div>
+						</div>				
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="aws_endpoint_url" string="End point URL" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="aws_endpoint_url" />
+									</div>
+								</div>
+							</div>
+						</div>						
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="aws_access_key_id" string="Access Key" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="aws_access_key_id" />
+									</div>
+								</div>
+							</div>
+						</div>						
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="aws_secret_access_key" string="Secret Key" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="aws_secret_access_key" />
+									</div>
+								</div>
+							</div>
+						</div>	
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane" />
+							<div class="o_setting_right_pane">
+								<label for="aws_api_version" string="API Version" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="aws_api_version" />
+									</div>
+								</div>
+							</div>
+						</div>										
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane">
+								<field name="aws_use_ssl" />
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="aws_api_version" string="Use SSL" />
+							</div>
+						</div>	
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane">
+								
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="aws_verify" string="Verify SSL certificates" />
+								<div class="content-group">
+									<div class="mt16">
+										<field name="aws_verify" />
+									</div>
+								</div>
+								
+							</div>
+						</div>																								
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane">
+								<field name="s3_delete" />
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="s3_delete" string="Delete s3 file when attachment deleted" />
+							</div>
+						</div>																								
+						<div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible' : [('attachment_location','!=', 's3')]}">
+							<div class="o_setting_left_pane">
+								<field name="s3_cache" />
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="s3_cache"  string="Cache in file system"/>
+							</div>
+						</div>																								
+																													
+					</div>
+				</div>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>
